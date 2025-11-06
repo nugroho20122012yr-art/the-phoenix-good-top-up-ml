@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE PHOENIX GOOD TOP-UP - Premium Services</title>
+    
+    <style>
+        /* --- Palet Warna Mewah --- */
+        :root {
+            --color-dark-bg: #2C2C2C; /* Latar Belakang Utama (Dark Bronze) */
+            --color-card-bg: #3A3A3A; /* Latar Belakang Section/Card (Off-Black) */
+            --color-gold: #FFD700;    /* Emas Murni */
+            --color-accent-gold: #B8860B; /* Dark Goldenrod (Aksen) */
+            --color-text-light: #EAEAEA; /* Teks Utama */
+            --color-red-accent: #E53935; /* Merah untuk Fire/Promo */
+            --color-whatsapp: #25d366;
+        }
+
+        /* --- BODY & BACKGROUND --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-dark-bg); 
+            color: var(--color-text-light); 
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* --- HEADER & JUDUL (Efek Emas) --- */
+        header {
+            background: linear-gradient(135deg, #444444, #1C1C1C);
+            border-bottom: 2px solid var(--color-accent-gold);
+            padding: 30px 0;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Efek Sinar Emas */
+            font-weight: 900;
+        }
+        
+        header p {
+            color: var(--color-text-light);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- SECTION BACKGROUND --- */
+        section {
+            background-color: var(--color-card-bg);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Bayangan Lebih Dalam */
+            margin-bottom: 25px;
+            color: var(--color-text-light); 
+            border: 1px solid #444; /* Border halus */
+        }
+        
+        section h2 {
+            color: var(--color-gold);
+            border-bottom: 2px dashed var(--color-accent-gold);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* --- PRODUK CARD --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            border: 2px solid var(--color-red-accent);
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #2F2F2F; /* Sedikit lebih gelap dari section */
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--color-accent-gold);
+            border-color: var(--color-gold);
+        }
+
+        .card h3 {
+            color: var(--color-gold);
+            margin-top: 0;
+            font-size: 1.5em;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        
+        .promo-note {
+            font-size: 0.9em;
+            color: #79A0DC; /* Biru/Cyan yang lebih mewah */
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .price {
+            font-size: 1.3em;
+            font-weight: 900;
+            color: #8CFF8C; /* Hijau terang yang kontras */
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- INPUTS & NOTES --- */
+        input[type="number"] {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid var(--color-accent-gold);
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #444444;
+            color: var(--color-text-light);
+            font-size: 1em;
+        }
+
+        .note {
+            color: var(--color-gold);
+            font-style: italic;
+            border: 2px solid var(--color-gold);
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #44330040; /* Coklat transparan */
+        }
+        
+        /* --- TOMBOL UMUM --- */
+        button {
+            background-color: #6A5ACD; /* Biru-ungu yang lebih gelap */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #8A2BE2; /* Violet yang lebih kuat */
+        }
+
+        button:disabled {
+            background-color: #666;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        
+        /* --- TOMBOL WHATSAPP (Aksen Emas) --- */
+        button.whatsapp-btn {
+            background: linear-gradient(90deg, #FFD700, #DAA520); /* Gradient Gold */
+            color: #111;
+            font-weight: 900;
+            font-size: 1.1em;
+            margin-top: 20px;
+            border: 2px solid white;
+            box-shadow: 0 0 20px var(--color-gold);
+        }
+        
+        button.whatsapp-btn:hover {
+            background: linear-gradient(90deg, #DAA520, #FFD700);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THE PHOENIX GOOD TOP-UP</h1>
+        <p>Layanan Premium Top-up Mobile Legends Harga Super Murah!</p>
+    </header>
+
+    <main class="container">
+        
+        <section id="input-id">
+            <h2>Langkah 1: Masukkan ID Akun Anda</h2>
+            <form id="id-input-form">
+                <label for="user-id">ID Akun/User Name (Harus 10 Digit Angka):</label>
+                <input type="number" id="user-id" name="user-id" min="0" oninput="if(this.value.length > 10) this.value = this.value.slice(0, 10);" placeholder="Masukkan 10 digit ID Akun (Contoh: 1234567890)" required>
+                
+                <label for="server-id">ID Server (Harus Angka, 4-5 Digit):</label>
+                <input type="number" id="server-id" name="server-id" min="0" oninput="if(this.value.length > 5) this.value = this.value.slice(0, 5);" placeholder="Masukkan 4-5 digit ID Server (Contoh: 12345)" required>
+                
+                <p class="note">✅ Setelah ID dimasukkan dengan benar, tombol "Lanjut" akan muncul di bawah.</p>
+                <button type="button" id="btn-lanjut-produk" disabled>Lanjut Pilih Produk</button>
+            </form>
+        </section>
+
+        <section id="produk" style="display: none;">
+            <h2>Langkah 2: Pilih Produk Spesial 🔥</h2>
+            <div class="product-grid">
+                
+                <div class="card" data-diamond="20" data-price="2005" data-desc="18 Diamond + 2 Bonus DM" data-pkgname="Paket 1"> 
+                    <h3>Paket 1</h3>
+                    <p>20 Diamond MLBB</p>
+                    <p class="promo-note">(18 Diamond + 2 Bonus DM)</p>
+                    <p class="price">Harga: Rp2.005,-</p>
+                    <button onclick="pilihProduk(this)">Pilih</button>
+                </div>
+
+                <div class="card" data-diamond="35" data-price="5050" data-desc="22 Diamond + 13 Bonus DM" data-pkgname="Paket 2"> 
+                    <h3>Paket 2</h3>
+                    <p>35 Diamond MLBB</p>
+                    <p class="promo-note">(22 Diamond + 13 Bonus DM)</p>
+                    <p class="price">Harga: Rp5.050,-</p>
+                    <button onclick="pilihProduk(this)">Pilih</button>
+                </div>
+
+                <div class="card" data-diamond="10" data-price="505" data-desc="8 Diamond + 2 Bonus DM" data-pkgname="Paket Murah"> 
+                    <h3>Paket Murah</h3>
+                    <p>10 Diamond MLBB</p>
+                    <p class="promo-note">(8 Diamond + 2 Bonus DM)</p>
+                    <p class="price">Harga: Rp505,-</p>
+                    <button onclick="pilihProduk(this)">Pilih</button>
+                </div>
+
+                <div class="card" data-diamond="50" data-price="6008" data-desc="40 Diamond + 10 Bonus DM" data-pkgname="Paket 4"> 
+                    <h3>Paket 4</h3>
+                    <p>50 Diamond MLBB</p>
+                    <p class="promo-note">(40 Diamond + 10 Bonus DM)</p>
+                    <p class="price">Harga: Rp6.008,-</p>
+                    <button onclick="pilihProduk(this)">Pilih</button>
+                </div>
+
+                <div class="card" data-diamond="10" data-price="100" data-desc="5 Diamond + 5 Bonus DM" data-pkgname="Paket Paling Murah"> 
+                    <h3>Paket Paling Murah</h3>
+                    <p>10 Diamond MLBB</p>
+                    <p class="promo-note">Hanya Bisa 2 Kali Beli Dalam 1 Minggu!</p>
+                    <p class="price">Harga: Rp100,-</p>
+                    <button onclick="pilihProduk(this)">Pilih</button>
+                </div>
+            </div>
+            
+            <p id="selected-info" style="font-weight: bold; margin-top: 20px;">Produk Dipilih: Belum ada.</p>
+            <button type="button" id="btn-lanjut-bayar" disabled>Lanjutkan ke Pembayaran</button>
+        </section>
+
+        <section id="pembayaran" style="display: none;">
+            <h2>Langkah 3: Konfirmasi & Bayar</h2>
+            <p style="font-weight: bold;">Anda telah memilih:</p>
+            <p>
+                <span id="final-diamond"></span> Diamond (Deskripsi: <span id="final-package-desc"></span>)<br> 
+                Total Bayar: <span id="final-price"></span>
+            </p>
+            
+            <p class="note">
+                PENTING! Klik tombol WhatsApp di bawah. Anda akan menerima link QRIS dan instruksi pembayaran di sana.
+            </p>
+            
+            <button id="btn-whatsapp-bayar" class="whatsapp-btn">Kirim Detail Pembelian & QRIS via WhatsApp</button>
+            
+            <ol style="text-align: left; margin-top: 20px; color: var(--color-text-light);">
+                <li>Bayar: Scan QRIS (link akan muncul di WA) dan bayar sesuai nominal <span id="step-price-1"></span> menggunakan aplikasi Anda (DANA, GoPay, Bank, dll.).</li>
+                <li>Konfirmasi: Balas pesan WhatsApp tersebut dengan bukti transfer Anda.</li>
+                <li>Top-Up: Diamond akan diproses setelah verifikasi manual.</li>
+            </ol>
+        </section>
+    </main>
+    
+    <script>
+        let selectedDiamond = 0;
+        let selectedPrice = 0;
+        let selectedDesc = '';
+        let selectedPackageName = '';
+        let userIdValue = '';
+        let serverIdValue = '';
+        const WHATSAPP_NUMBER = '6285824402770'; 
+        
+        // QRIS LINK SUDAH TERPASANG
+        const QRIS_LINK = 'https://i.postimg.cc/yY66Tdb0/Screenshot-20251105-123219-Go-Pay.jpg'; 
+
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID').format(number);
+        }
+
+        // --- VALIDASI ID AKUN/SERVER ---
+        const userIdInput = document.getElementById('user-id');
+        const serverIdInput = document.getElementById('server-id');
+        const btnLanjutProduk = document.getElementById('btn-lanjut-produk');
+
+        function checkIdInput() {
+            const userIdValid = userIdInput.value.length === 10;
+            const serverIdValid = serverIdInput.value.length >= 4 && serverIdInput.value.length <= 5;
+            btnLanjutProduk.disabled = !(userIdValid && serverIdValid);
+        }
+
+        userIdInput.addEventListener('input', checkIdInput);
+        serverIdInput.addEventListener('input', checkIdInput);
+
+        btnLanjutProduk.addEventListener('click', function() {
+            userIdValue = userIdInput.value;
+            serverIdValue = serverIdInput.value;
+            document.getElementById('input-id').style.display = 'none';
+            document.getElementById('produk').style.display = 'block';
+        });
+
+        // --- PILIH PRODUK ---
+        function pilihProduk(button) {
+            const card = button.closest('.card');
+            selectedDiamond = card.getAttribute('data-diamond');
+            selectedPrice = card.getAttribute('data-price'); 
+            selectedDesc = card.getAttribute('data-desc');
+            selectedPackageName = card.getAttribute('data-pkgname');
+            
+            const formattedPrice = formatRupiah(selectedPrice);
+            
+            document.getElementById('selected-info').innerHTML = 
+                `Produk Dipilih: *${selectedDiamond} Diamond* (${selectedPackageName}) seharga *Rp${formattedPrice},-*. Siap Bayar!`;
+
+            document.getElementById('btn-lanjut-bayar').disabled = false;
+            alert(`Anda memilih ${selectedDiamond} Diamond (${selectedPackageName}) seharga Rp${formattedPrice},-`);
+        }
+        
+        // --- LANJUT KE PEMBAYARAN ---
+        document.getElementById('btn-lanjut-bayar').addEventListener('click', function() {
+            if (selectedDiamond > 0) {
+                document.getElementById('produk').style.display = 'none';
+                document.getElementById('pembayaran').style.display = 'block';
+
+                const formattedPrice = formatRupiah(selectedPrice);
+
+                document.getElementById('final-diamond').textContent = selectedDiamond;
+                document.getElementById('final-package-desc').textContent = selectedDesc;
+                document.getElementById('final-price').textContent = `Rp${formattedPrice},-`;
+                document.getElementById('step-price-1').textContent = `Rp${formattedPrice},-`;
+                
+                document.getElementById('btn-whatsapp-bayar').onclick = function() {
+                    kirimKonfirmasiViaWhatsApp(userIdValue, serverIdValue, selectedDiamond, formattedPrice, selectedDesc, selectedPackageName);
+                };
+                
+            } else {
+                alert("Mohon pilih salah satu produk.");
+            }
+        });
+        
+        // --- KONFIRMASI VIA WHATSAPP ---
+        function kirimKonfirmasiViaWhatsApp(userId, serverId, diamond, price, desc, pkgName) {
+            
+            const message = `Halo PHOENIX GOOD TOP-UP, saya ingin melakukan pembayaran Top-up:\n\n*Paket:* ${pkgName} (${diamond} DM)\n*Deskripsi:* ${desc}\n*Harga:* Rp${price},-\n\n*ID Akun:* ${userId}(${serverId})\n\n\n*Langkah Pembayaran:*\n1. Scan QRIS di link ini (KLIK UNTUK MELIHAT QRIS): ${QRIS_LINK}\n2. Bayar sebesar Rp${price},- (*PASTIKAN NOMINAL SAMA*).\n3. Balas pesan ini dengan bukti transfer Anda.\n\nMohon segera diproses. Terima kasih!`;
+            
+            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappURL, '_blank');
+
+            alert("Anda telah diarahkan ke WhatsApp. Segera kirim pesan tersebut untuk menerima link QRIS!");
+            
+            setTimeout(() => {
+                document.getElementById('pembayaran').style.display = 'none';
+                document.getElementById('input-id').style.display = 'block';
+                document.getElementById('id-input-form').reset();
+                selectedDiamond = 0;
+                selectedPrice = 0;
+                document.getElementById('btn-lanjut-produk').disabled = true;
+                document.getElementById('selected-info').innerHTML = `Produk Dipilih: Belum ada.`;
+                document.getElementById('produk').style.display = 'none'; 
+            }, 500);
+        }
+    </script>
+</body>
+</html>
